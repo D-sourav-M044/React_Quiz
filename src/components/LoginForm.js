@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from "react-router-dom";
 import Button from "./Button";
 import Form from "./Form";
 import TextInput from "./TextInput";
@@ -35,7 +36,7 @@ export default function LoginForm() {
       </Button>
 
       <div className="info">
-        {/* Don't have an account? <Link to="/signup">Signup</Link> instead. */}
+        Don't have an account? <Link to="/Signup">Signup</Link> instead.
       </div>
     </Form>
   );
