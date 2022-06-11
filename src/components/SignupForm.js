@@ -1,9 +1,10 @@
 import { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import Button from "./Button";
+import Checkbox from "./Checkbox";
 import Form from "./Form";
 import TextInput from "./TextInput";
-import Checkbox from "./Checkbox";
 
 export default function SignupForm() {
   const [username, setUsername] = useState("");
@@ -15,8 +16,27 @@ export default function SignupForm() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
 
+  const { signup } = useAuth();
+  const history = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
+    // do validation
+    if (password !== confirmPassword) {
+      return setError("Passwords don't match!");
+    }
+
+    try {
+      setError("");
+      setLoading(true);
+      await signup(email, password, username);
+      //history.push("/");
+      history("/", { replace: true });
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+      setError("Failed to create an account!");
+    }
   }
 
   return (
@@ -68,10 +88,10 @@ export default function SignupForm() {
         <span>Submit Now</span>
       </Button>
 
-      {/* {error && <p className="error">{error}</p>} */}
+      {error && <p className="error">{error}</p>}
 
       <div className="info">
-        Already have an account? <Link to="/Login">Login</Link> instead.
+        Already have an account? <Link to="/login">Login</Link> instead.
       </div>
     </Form>
   );
