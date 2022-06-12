@@ -26,7 +26,7 @@ export default function LoginForm() {
     } catch (err) {
       console.log(err);
       setLoading(false);
-      setError("Failed to login!");
+      setError("email or password is invalid !");
     }
   }
 
