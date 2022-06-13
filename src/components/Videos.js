@@ -21,7 +21,7 @@ export default function Videos() {
             video.noq > 0 ? (
               <Link
                 to={{
-                  pathname: `/Quiz/${video.youtubeID}`,
+                  pathname: `/quiz/${video.youtubeID}`,
                   state: {
                     videoTitle: video.title,
                   },
