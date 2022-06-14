@@ -1,7 +1,7 @@
 import { getDatabase, ref, set } from "firebase/database";
 import _ from "lodash";
 import { useEffect, useReducer, useState } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import useQuestions from "../../hooks/useQuestions";
 import Answers from "../Answers";
@@ -38,9 +38,10 @@ export default function Quiz() {
   const [qna, dispatch] = useReducer(reducer, initialState);
   const { currentUser } = useAuth();
   const history = useNavigate();
-  // const { location } = history;
-  // const { state } = useLocation;
-  // const { videoTitle } = state;
+  // const { videoTitle } = useLocation();
+  // console.log(videoTitle);
+  //const { state } = useLocation;
+  //const { videoTitle } = state;
 
   useEffect(() => {
     dispatch({
@@ -83,12 +84,8 @@ export default function Quiz() {
       [id]: qna,
     });
 
-    history(
-      `/Result/${id}`,
-      { state: qna },
-    );
+    history(`/Result/${id}`, { state: qna });
   }
-
 
   // calculate percentage of progress
   const percentage =
@@ -113,7 +110,7 @@ export default function Quiz() {
             submit={submit}
             progress={percentage}
           />
-          {/* <MiniPlayer id={id} title={videoTitle} /> */}
+          <MiniPlayer id={id} title={""} />
         </>
       )}
     </>

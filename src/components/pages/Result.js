@@ -10,8 +10,8 @@ export default function Result() {
   //const { state } = useLocation;
   const { state } = useLocation();
   const { qna } = state;
-  console.log("here")
-  console.log(state);
+  // console.log("here")
+  // console.log(state);
 
   const { loading, error, answers } = useAnswers(id);
 

@@ -9,6 +9,7 @@ export default function Videos() {
   const { loading, error, videos, hasMore } = useVideoList(page);
 
   return (
+    
     <div>
       {videos.length > 0 && (
         <InfiniteScroll

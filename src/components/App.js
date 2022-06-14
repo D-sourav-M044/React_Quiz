@@ -17,10 +17,10 @@ function App() {
          <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Signup" element={<PublicRoute><Signup /></PublicRoute>} />
+            {/* <Route path="/Signup" element={<PublicRoute><Signup /></PublicRoute>} />
             <Route path="/Login" element={<PublicRoute><Login /></PublicRoute>} />
             <Route path="/Quiz/:id" element={<PrivateRoute><Quiz /></PrivateRoute>} />
-            <Route path="/Result/:id" element={<PrivateRoute><Result /></PrivateRoute>} />
+            <Route path="/Result/:id" element={<PrivateRoute><Result /></PrivateRoute>} /> */}
           </Routes>
         </Layout> 
       </AuthProvider>
