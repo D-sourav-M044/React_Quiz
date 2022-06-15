@@ -1,6 +1,3 @@
-import { useMemo } from "react";
-import successImage from "../assets/images/success.png";
-import useFetch from "../hooks/useFetch";
 import classes from "../styles/Summary.module.css";
 
 export default function Summary({ score, noq }) {

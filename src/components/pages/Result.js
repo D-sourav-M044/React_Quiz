@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import useAnswers from "../../hooks/useAnswers";
 import Analysis from "../Analysis";
 import Summary from "../Summary";
@@ -9,7 +9,7 @@ export default function Result() {
   //const { location } = useLocation();
   //const { state } = useLocation;
   const { state } = useLocation();
-  const { qna } = state;
+  //const { qna } = state;
   // console.log("here")
   // console.log(state);
 
